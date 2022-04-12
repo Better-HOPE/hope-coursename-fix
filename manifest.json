@@ -1,6 +1,6 @@
 {
     "name": "hope-coursename-fix",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 3,
     "description": "Fix course names in hope",
     "content_scripts": [
