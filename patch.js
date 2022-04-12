@@ -31,11 +31,11 @@ void (async function main () {
     const selector = 'a[href*="https://hope.fun.ac.jp/course/view.php?id="]'
     const anchors = [...document.querySelectorAll(selector)]
 
-    for(const a of anchors){
+    for (const a of anchors) {
         const [_, id] = a.href.split('=')
         const targets = Array.from(a.querySelectorAll('* *'))
             .filter(e => e.innerHTML.match(badCourseNamePattern))
-        for(const target of [a, ...targets]){
+        for (const target of [a, ...targets]) {
             target.innerHTML = courseRecord[id] || target.innerHTML
         }
     }
