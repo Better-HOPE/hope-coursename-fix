@@ -1,6 +1,6 @@
 {
     "name": "hope-coursename-fix",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "manifest_version": 3,
     "description": "Fix course names in hope",
     "content_scripts": [
@@ -15,7 +15,7 @@
         }
     ],
     "web_accessible_resources": [{
-        "resources": ["patch.js"],
+        "resources": [],
         "matches": ["https://hope.fun.ac.jp/*"]
     }]
 }
