@@ -15,7 +15,7 @@
         }
     ],
     "web_accessible_resources": [{
-        "resources": [],
+        "resources": ["course-list.json"],
         "matches": ["https://hope.fun.ac.jp/*"]
     }]
 }

@@ -1,27 +1,9 @@
 console.log('-- hope-coursename-fix --')
 
 function getCourseRecord () {
-    const linkPageUrl = 'https://hope.fun.ac.jp/mod/page/view.php?id=70596'
-    const courseSelector = 'div>ul>li>a[href*="https://hope.fun.ac.jp/course/view.php?id="]'
-
-    return new Promise((resolve, reject) => {
-        const iframe = document.createElement('iframe')
-        iframe.style = 'none'
-        iframe.src = linkPageUrl
-        iframe.addEventListener('load', () => {
-            const record = {}
-            const anchors = Array.from(iframe.contentWindow.document.querySelectorAll(courseSelector))
-            for (const { href, innerHTML } of anchors) {
-                const [_, id] = href.split('=')
-                const name = innerHTML.trim()
-                record[id] = name
-                record[name] = id
-            }
-            document.body.removeChild(iframe)
-            resolve(record)
-        })
-        document.body.appendChild(iframe)
-    })
+    const listPath = 'course-list.json'
+    const courseListUrl = chrome.runtime.getURL(listPath)
+    return fetch(courseListUrl).then(res => res.json())
 }
 
 void (async function main () {
